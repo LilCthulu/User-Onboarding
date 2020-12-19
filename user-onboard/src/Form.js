@@ -22,19 +22,19 @@ export default function Form(){
         agree: false,
     });
     
-    const submit = (evt) => {
-    const newUser = {name: form.name, email: form.email, password: form.password, agree: form.agree}
-    axios   
-    .post('https://reqres.in/api/users', newUser)
-    .then(response => {
-        setForm({
-            name: '',
-            email: '',
-            password: '',
-            agree: false,
-        })
-    })
-    .catch(err => console.log(err))};
+    // const submit = (evt) => {
+    // const newUser = {name: form.name, email: form.email, password: form.password, agree: form.agree}
+    // axios   
+    // .post('https://reqres.in/api/users', newUser)
+    // .then(response => {
+    //     setForm({
+    //         name: '',
+    //         email: '',
+    //         password: '',
+    //         agree: false,
+    //     })
+    // })
+    // .catch(err => console.log(err))};
     
     
     const [errors, setErrors] = useState({
@@ -69,7 +69,7 @@ export default function Form(){
 
     return(
         <div className= 'Form'>
-            <form onSubmit={submit(), setUsers(form.name)}>
+            <form >
             <div style= {{color: 'red'}}>
                 <div>{errors.name}</div> <div>{errors.email}</div> <div>{errors.password}</div> <div>{errors.agree}</div>
             </div>
@@ -86,7 +86,7 @@ export default function Form(){
                 <input onChange= {change} type="checkbox" name= 'agree'/>
                 </label>
                 <div className= 'Users'>Users: {users}</div>
-                <button disabled={disabled} >Submit</button>
+                <button disabled={disabled} name= 'submit'>Submit</button>
             </form>
         </div>
 
