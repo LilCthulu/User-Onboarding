@@ -8,6 +8,7 @@ describe('User input tests', () => {
     const submitBtn = () => cy.get('button[name = "submit"]')
 
     it('Checking that all elements are real', () => {
+        expect(2 + 2).to.equal(4)
         cy.visit('http://localhost:3000/')
         nameField().should('exist')
         emailField().should('exist')
